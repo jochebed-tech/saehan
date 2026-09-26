@@ -48,14 +48,9 @@
             padding: 20px 16px;
             margin-bottom: 24px;
         }
-        .bank-name {
-            font-size: 14px;
-            color: #86868b;
-            margin-bottom: 4px;
-        }
-        .account-holder {
+        .bank-info {
             font-size: 18px;
-            font-weight: 600;
+            font-weight: 700;
             color: #1d1d1f;
             margin-bottom: 12px;
         }
@@ -122,10 +117,9 @@
         <p class="description">구매하신 쿠폰 금액은 아래 계좌번호로 이체하여 주세요.</p>
         
         <div class="account-box">
-            <div class="bank-name">국민은행</div>
-            <div class="account-holder">새한교회</div>
+            <div class="bank-info">신한은행(예금주: 새한교회)</div>
             <div class="account-number-wrapper">
-                <span class="account-number" id="accountNum">274104-047905</span>
+                <span class="account-number" id="accountNum">140-011-494572</span>
                 <button class="copy-btn" onclick="copyAccount()">복사</button>
             </div>
         </div>
@@ -139,11 +133,9 @@
         function copyAccount() {
             const accountNum = document.getElementById("accountNum").innerText;
             
-            // 클립보드 복사 실행
             navigator.clipboard.writeText(accountNum).then(() => {
                 showToast();
             }).catch(err => {
-                // 구형 브라우저 대응
                 const textarea = document.createElement("textarea");
                 textarea.value = accountNum;
                 document.body.appendChild(textarea);
